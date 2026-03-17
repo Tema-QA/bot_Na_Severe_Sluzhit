@@ -1,13 +1,9 @@
 import logging
-import nest_asyncio
 import os
 import re # Import the re module for regular expressions
 from datetime import datetime, timedelta # Import datetime and timedelta
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes, CallbackQueryHandler, JobQueue
-
-# Apply nest_asyncio to allow nested event loops
-nest_asyncio.apply()
 
 # Enable logging
 logging.basicConfig(
