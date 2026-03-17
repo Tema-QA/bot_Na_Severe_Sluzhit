@@ -319,7 +319,11 @@ def main() -> None:
     application.add_handler(CallbackQueryHandler(button_start_callback, pattern="^start_questionnaire$"))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
-    port = int(os.environ.get("PORT", "8443"))
+    port_str = (os.environ.get("PORT") or "").strip()
+    try:
+        port = int(port_str) if port_str else 8443
+    except ValueError:
+        port = 8443
     base_url = os.environ.get("WEBHOOK_URL")
     if not base_url:
         raise RuntimeError(
