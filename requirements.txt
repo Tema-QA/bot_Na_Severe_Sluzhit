@@ -1,2 +1,1 @@
-python-telegram-bot[job-queue]
-nest_asyncio
+python-telegram-bot[job-queue,webhooks]
